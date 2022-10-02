@@ -14,13 +14,13 @@
   font-weight: 300;
   max-height: 78px;
   overflow: hidden;
-  text-overflow: ellipsis; 
-   overflow: hidden;
-   text-overflow: ellipsis; 
-   display: -webkit-box;
-    -webkit-line-clamp: 3;
-            line-clamp: 3; 
-    -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .title {
@@ -29,14 +29,14 @@
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   display: -webkit-box;
-   -webkit-line-clamp: 2;
-           line-clamp: 2; 
-   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.tag{
+.tag {
   float: right;
   margin-top: -8px;
   margin-right: -8px;
@@ -46,18 +46,18 @@
   color: #2a2929;
 }
 
-.TODO{
+.TODO {
   background-color: #ffc107;
 }
 
-.DOING{
+.DOING {
   background-color: #0c78ea;
 }
 
-.DONE{
+.DONE {
   background-color: #26c249;
 }
 
-.delete{
+.delete {
   background-color: #ff4d4f;
 }

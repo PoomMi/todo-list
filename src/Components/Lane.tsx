@@ -1,33 +1,33 @@
-import { useEffect } from "react";
-import { Droppable } from "react-beautiful-dnd";
-import { useDispatch } from "react-redux";
-import { connect } from "react-redux";
-import { mockData } from "../mock-data/data";
-import { IBacklog, IBacklogItem, Status } from "../Models/Backlog.Model";
-import styles from "../Styles/Lane.module.scss";
-import { createCard } from "../utils/dispatchAction";
-import Card from "./Card";
-import backlogRepo from "../utils/repositories/backlogRepo";
-import user from "../utils/user";
+import { useEffect } from 'react'
+import { Droppable } from 'react-beautiful-dnd'
+import { useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
+import { mockData } from '../mock-data/data'
+import { IBacklog, IBacklogItem, Status } from '../Models/Backlog.Model'
+import styles from '../Styles/Lane.module.scss'
+import { createCard } from '../utils/dispatchAction'
+import Card from './Card'
+import backlogRepo from '../utils/repositories/backlogRepo'
+import user from '../utils/user'
 
 interface IComponentProps {
-  id: string;
-  status: Status;
-  data?: IBacklogItem[];
+  id: string
+  status: Status
+  data?: IBacklogItem[]
 }
 
 const Lane = ({ id, status, data }: IComponentProps) => {
-  const dispatch = useDispatch();
-  
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    getData();
-  }, []);
+    getData()
+  }, [])
 
   const getData = async () => {
     // fetch data
-    const d = !user.id ? [] : await backlogRepo.getItems(status);
-    dispatch(createCard(status, d));
-  };
+    const d = !user.id ? [] : await backlogRepo.getItems(status)
+    dispatch(createCard(status, d))
+  }
 
   return (
     <div className={styles.laneContainer}>
@@ -48,15 +48,15 @@ const Lane = ({ id, status, data }: IComponentProps) => {
         )}
       </Droppable>
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = function (state: IBacklog, props: IComponentProps) {
   return {
     id: props.id,
     status: props.status,
     data: state[props.status],
-  } as IComponentProps;
-};
+  } as IComponentProps
+}
 
-export default connect(mapStateToProps)(Lane);
+export default connect(mapStateToProps)(Lane)

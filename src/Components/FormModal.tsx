@@ -1,14 +1,14 @@
-import {useEffect, useRef} from 'react'
-import {Input, Modal, Form, InputRef} from 'antd'
+import { useEffect, useRef } from 'react'
+import { Input, Modal, Form, InputRef } from 'antd'
 const { TextArea } = Input
 
 interface IComponentProps {
-  isShown: boolean;
-  submitText: string;
-  title?: string;
-  description?: string;
-  handleFunction: Function;
-  modalHandler: VoidFunction;
+  isShown: boolean
+  submitText: string
+  title?: string
+  description?: string
+  handleFunction: Function
+  modalHandler: VoidFunction
 }
 
 export default function FormModal({
@@ -33,12 +33,12 @@ export default function FormModal({
 
   const onSubmit = async () => {
     try {
-      const data = await form.validateFields();
-      await handleFunction(data);
+      const data = await form.validateFields()
+      await handleFunction(data)
     } catch (error) {
-      console.error("Validate Failed =>", error);
+      console.error('Validate Failed =>', error)
     }
-  };
+  }
 
   return (
     <Modal
@@ -54,7 +54,7 @@ export default function FormModal({
         layout="vertical"
         name="form_in_modal"
         initialValues={{
-          modifier: "public",
+          modifier: 'public',
         }}
       >
         <Form.Item
@@ -64,7 +64,7 @@ export default function FormModal({
           rules={[
             {
               required: true,
-              message: "Please title",
+              message: 'Please title',
             },
           ]}
         >
@@ -75,9 +75,9 @@ export default function FormModal({
           label="Description"
           initialValue={description}
         >
-          <TextArea autoSize style={{ resize: "none" }} />
+          <TextArea autoSize style={{ resize: 'none' }} />
         </Form.Item>
       </Form>
     </Modal>
-  );
+  )
 }

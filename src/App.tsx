@@ -11,22 +11,22 @@ import { auth } from './firebase/config'
 import { onAuthStateChanged } from '@firebase/auth'
 
 function App() {
-  const [shouldDisplay, setShouldDisplay] = useState(false);
-  const [isAuthen, setIsAuthen] = useState(false);
+  const [shouldDisplay, setShouldDisplay] = useState(false)
+  const [isAuthen, setIsAuthen] = useState(false)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser)  {
-        user.id = currentUser.uid;
-        user.username = currentUser.displayName;
-        setIsAuthen(true);
+      if (currentUser) {
+        user.id = currentUser.uid
+        user.username = currentUser.displayName
+        setIsAuthen(true)
       }
 
-      setShouldDisplay(true);
-    });
+      setShouldDisplay(true)
+    })
 
-    return () => unsubscribe();
-  }, []);
+    return () => unsubscribe()
+  }, [])
 
   return (
     <>
@@ -49,7 +49,7 @@ function App() {
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
